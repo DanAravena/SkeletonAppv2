@@ -24,3 +24,36 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+ion-content::part(background) {
+    background: #d31373;
+}
+  
+ion-content::part(scroll) {
+    color: #fff;
+}
+
+@font-face {
+    font-family: 'TheFrontman-j32M';
+    src: url('/assets/fonts/the-frontman-font/TheFrontman-j32M.ttf');
+}
+
+@font-face {
+    font-family: 'DeadFeather-n580';
+    src: url('/assets/fonts/dead-feather-font/DeadFeather-n580.ttf');
+}
+
+@font-face {
+    font-family: 'Skull';
+    src: url('/assets/fonts/skull-font/UntitledRegular-jJ6G.otf');
+}
+
+@font-face {
+    font-family: 'BrookFree';
+    src: url('/assets/fonts/brook-font/BrookFree-Yz2y2.ttf');
+}
+
+@font-face {
+    font-family: 'Witch';
+    src: url('/assets/fonts/witchkin-font/WitchkinFree-axXAE.ttf');
+}
