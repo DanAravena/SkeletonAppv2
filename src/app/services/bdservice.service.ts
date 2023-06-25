@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,16 +23,21 @@ export class BdserviceService {
   tablaNotas: string = "CREATE TABLE IF NOT EXIST NOTA( "+
                         "  ID_NOTA INTEGER PRIMARY KEY AUTOINCREMENT, "+
                         "  ID_USER INTEGER NOT NULL, "+
-                        "  DETALLE VARCHAR(40) NOT NULL, "+
+                        "  DETALLE VARCHAR(255) NOT NULL, "+
                         "  FOREIGN KEY (ID_USER) REFERENCES USUARIO(ID_USER));"
 
-  //insert registers
-  registrarUsuario: string = "INSERT INTO OR IGNORE USUARIO(NOMBRE, APELLIDO, MAIL, NIVEL_EDUC, FECHA_NAC, CLAVE) VALUES('Genoveva','villablanca', 'ge.villablanca@duocuc.cl', 'universitaria', '', '12345');"
+  //insert 
+  registrarUsuario: string = "INSERT OR IGNORE INTO USUARIO(NOMBRE, APELLIDO, MAIL, NIVEL_EDUC, FECHA_NAC, CLAVE) VALUES('Genoveva','villablanca', 'ge.villablanca@duocuc.cl', 'universitaria', '', '12345');"
   
- // registrarNota: string = "INSERT INTO "
-
+  registrarNota: string = "INSERT OR IGNORE INTO NOTA(ID_NOTA, ID_USER, DETALLE) VALUES(1,1,'ESTO ES UNA NOTA DE PRUEBA');"
 
   //observables
+  listaUsuarios = new BehaviorSubject([]);
+  listarNotas = new BehaviorSubject([]);
+
+  private isDBReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
   
   constructor() { }
+
+  
 }
