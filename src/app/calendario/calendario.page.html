@@ -1,13 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>calendario</ion-title>
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="dark">
+     <ion-title class="ion-text-center titulo-principal"><img alt="" src="/assets/img/logo2.png" class="logo-principal" />    SkeletonApp</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">calendario</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center subtitulo">Calendario</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-datetime [isDateEnabled]="isWeekday"></ion-datetime>
+  </ion-card-content>
+
+  <ion-button fill="outline" expand="block" class="labels"  [routerLink]="['/home']">Inicio</ion-button>
+  <ion-button fill="outline" expand="block" class="labels" [routerLink]="['/notas']">Notas</ion-button>
+</ion-card>
 </ion-content>

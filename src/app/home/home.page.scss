@@ -1,27 +1,44 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.titulo-principal{
+  font-family: 'TheFrontman-j32M';
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.subtitulo{
+  font-family: 'DeadFeather-n580';
+  font-size: 50px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.skeleton{
+  font-family: 'Skull';
+  font-size: 50px;
 }
 
-#container a {
-  text-decoration: none;
+.normal{
+  font-family: 'BrookFree';
+}
+
+.labels{
+  font-family: 'Witch';
+}
+
+.logo-principal{
+  width: 16%;  
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.boton{
+  display: flex;
+  justify-content: center;
+}
+
+.logo-principal{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
 }

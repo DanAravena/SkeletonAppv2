@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="dark">
+    <img alt="" src="/assets/img/img-logo.png" class="logo-principal" />
+    <div class="boton">
+      <ion-button fill="outline" size="small" class="labels" [routerLink]="['/login']" color="secondary"><ion-icon name="log-out-outline"></ion-icon></ion-button>
+      <ion-button fill="outline" size="small" [routerLink]="['/acerca-de']" class="labels" color="secondary">About me</ion-button>
+    </div> 
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content >
+  <h2 class="ion-text-center labels"> Bienvenido Usuario</h2>
+  <ion-card>
+    <img alt="Silhouette of mountains" src="/assets/img/banner01.png" />
+    <ion-card-content>
+     <ion-button expand="block" class="labels" (click)="perfil()" fill="outline">Perfil usuario</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+   <img alt="Silhouette of mountains" src="/assets/img/banner02.png" />
+    <ion-card-content>
+     <ion-button expand="block" class="labels" (click)="notas()" fill="outline">Notas</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+   <img alt="Silhouette of mountains" src="/assets/img/banner03.png" />
+    <ion-card-content>
+     <ion-button expand="block" class="labels" [routerLink]="['/calendario']" fill="outline">Calendario</ion-button>
+    </ion-card-content>
+  </ion-card>   
 </ion-content>

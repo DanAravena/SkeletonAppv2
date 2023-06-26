@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   constructor(private router: Router, private alertController: AlertController) {}
 
   logeado(){
-        this.router.navigate(['/menu'])   
+        this.router.navigate(['/home'])   
   }
 
   async presentAlert(msj: string) {

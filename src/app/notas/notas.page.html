@@ -1,13 +1,71 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>notas</ion-title>
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="dark">
+     <ion-title class="ion-text-center titulo-principal"><img alt="" src="/assets/img/logo2.png" class="logo-principal" />    SkeletonApp</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">notas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center subtitulo">Notas</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+  <ion-card>
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img alt="Silhouette of mountains" src="https://img.freepik.com/free-photo/human-skull-wooden-table-with-dark-background_9083-8111.jpg" />
+        </ion-thumbnail>
+        <ion-label>Nota 1</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img alt="Silhouette of mountains" src="https://img.freepik.com/free-photo/human-skull-wooden-table-with-dark-background_9083-8111.jpg" />
+        </ion-thumbnail>
+        <ion-label>Nota 2</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img alt="Silhouette of mountains" src="https://img.freepik.com/free-photo/human-skull-wooden-table-with-dark-background_9083-8111.jpg" />
+        </ion-thumbnail>
+        <ion-label>Note 3</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <img alt="Silhouette of mountains" src="https://img.freepik.com/free-photo/human-skull-wooden-table-with-dark-background_9083-8111.jpg" />
+        </ion-thumbnail>
+        <ion-label>Note 4</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+  </ion-card-content>
+  <ion-button  expand="block" fill="outline" class="labels" (click)="setOpen(true)">Nueva Nota</ion-button>
+  <ion-button  expand="block" fill="outline" class="labels"  [routerLink]="['/home']">Inicio</ion-button>
+</ion-card>
+
+<ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Nota</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Guardar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-card>
+        <ion-card-content>
+          <ion-item>
+            <ion-textarea placeholder="Escriba aqui" [autoGrow]="true" value=""></ion-textarea>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+  </ion-modal>
 </ion-content>
