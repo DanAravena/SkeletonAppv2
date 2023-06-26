@@ -45,8 +45,8 @@
   </ion-card-content>
 </ion-card>
   </ion-card-content>
-  <ion-button  expand="block" fill="outline" class="labels" (click)="setOpen(true)">Nueva Nota</ion-button>
-  <ion-button  expand="block" fill="outline" class="labels"  [routerLink]="['/home']">Inicio</ion-button>
+  <ion-button  expand="block" color="dark" class="labels" (click)="setOpen(true)">Nueva Nota</ion-button>
+  <ion-button  expand="block" color="dark" class="labels"  [routerLink]="['/home']">Inicio</ion-button>
 </ion-card>
 
 <ion-modal [isOpen]="isModalOpen">
@@ -55,7 +55,7 @@
         <ion-toolbar>
           <ion-title>Nota</ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false)">Guardar</ion-button>
+            <ion-button (click)="setOpen(false)" color="dark">Guardar</ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>

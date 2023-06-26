@@ -2,9 +2,10 @@
   <ion-toolbar color="dark">
     <img alt="" src="/assets/img/img-logo.png" class="logo-principal" />
     <div class="boton">
-      <ion-button fill="outline" size="small" class="labels" [routerLink]="['/login']" color="secondary"><ion-icon name="log-out-outline"></ion-icon></ion-button>
-      <ion-button fill="outline" size="small" [routerLink]="['/acerca-de']" class="labels" color="secondary">About me</ion-button>
+      <ion-button fill="outline" size="small" class="labels" [routerLink]="['/login']" ><ion-icon name="log-out-outline"></ion-icon></ion-button>
+      <ion-button fill="outline" size="small" [routerLink]="['/acerca-de']" class="labels">About me</ion-button>
     </div> 
+    <br>
   </ion-toolbar>
 </ion-header>
 <ion-content >
@@ -12,19 +13,19 @@
   <ion-card>
     <img alt="Silhouette of mountains" src="/assets/img/banner01.png" />
     <ion-card-content>
-     <ion-button expand="block" class="labels" (click)="perfil()" fill="outline">Perfil usuario</ion-button>
+     <ion-button expand="block" class="labels" (click)="perfil()"  color="dark">Perfil usuario</ion-button>
     </ion-card-content>
   </ion-card>
   <ion-card>
    <img alt="Silhouette of mountains" src="/assets/img/banner02.png" />
     <ion-card-content>
-     <ion-button expand="block" class="labels" (click)="notas()" fill="outline">Notas</ion-button>
+     <ion-button expand="block" class="labels" (click)="notas()" color="dark">Notas</ion-button>
     </ion-card-content>
   </ion-card>
   <ion-card>
    <img alt="Silhouette of mountains" src="/assets/img/banner03.png" />
     <ion-card-content>
-     <ion-button expand="block" class="labels" [routerLink]="['/calendario']" fill="outline">Calendario</ion-button>
+     <ion-button expand="block" class="labels" [routerLink]="['/calendario']" color="dark">Calendario</ion-button>
     </ion-card-content>
   </ion-card>   
 </ion-content>
