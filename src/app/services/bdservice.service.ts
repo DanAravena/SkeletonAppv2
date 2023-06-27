@@ -13,7 +13,7 @@ export class BdserviceService {
 
   public database!: SQLiteObject;
   //create tables
-  tablaUsuario: string = "CREATE TABLE IF NOT EXISTS USUARIO( "+
+  tablaUsuario: string = " CREATE TABLE IF NOT EXISTS USUARIO( "+
                             "ID_USER    INTEGER PRIMARY KEY AUTOINCREMENT,"+
                             "NOMBRE		  VARCHAR(40) NOT NULL, "+
                             "APELLIDO	  VARCHAR(40) NOT NULL, "+
@@ -29,7 +29,7 @@ export class BdserviceService {
                         "  FOREIGN KEY (ID_USER) REFERENCES USUARIO(ID_USER));"
 
   //insert 
-  registrarUsuario: string = "INSERT OR IGNORE INTO USUARIO(ID_USER, NOMBRE, APELLIDO, MAIL, NIVEL_EDUC, FECHA_NAC, CLAVE) VALUES(0,'Genoveva','villablanca', 'ge.villablanca@duocuc.cl', 'universitaria', '12345');"  
+  registrarUsuario: string = "INSERT OR IGNORE INTO USUARIO(ID_USER, NOMBRE, APELLIDO, MAIL, NIVEL_EDUC, FECHA_NAC, CLAVE) VALUES(0,'Genoveva','villablanca', 'ge.villablanca@duocuc.cl', 'universitaria', '12345', 'gvillablanca');"  
   registrarNota: string = "INSERT OR IGNORE INTO NOTA(ID_NOTA, ID_USER, DETALLE) VALUES(0,0,'ESTO ES UNA NOTA DE PRUEBA');"
 
   //observables
@@ -88,7 +88,8 @@ export class BdserviceService {
         //insert de datos
         await this.database.executeSql(this.registrarUsuario, []);
         //cargar datos en observable
-
+        this.buscarUsuario();
+        this.isDBReady.next(true);
       }
       catch(e){
         this.presentToast("Error en tabla de db: " + e);
@@ -99,15 +100,16 @@ export class BdserviceService {
     try{
       await this.database.executeSql(this.tablaNotas, []);
       await this.database.executeSql(this.registrarNota, []);
-
+      this.buscarNota();
+      this.isDBReady.next(true);
     }
     catch(e){
       this.presentToast("Error en tabla de db: " + e);
     }
   }
 
-  buscarUsuario(userApp: string, claveApp: string){
-    return this.database.executeSql('SELECT * FROM USUARIO WHERE USER='+ userApp +' AND CLAVE='+ claveApp +';',[]).then(res=>{
+  buscarUsuario(){
+    return this.database.executeSql('SELECT * FROM USUARIO;',[]).then(res=>{
       let items: Usuario[] = [];
       if(res.rows.length > 0){
         for(var i= 0; i<res.rows.length; i++){
@@ -126,8 +128,8 @@ export class BdserviceService {
     })
   }
 
-  buscarNota(id_userapp: number){
-    return this.database.executeSql('SELECT * FROM NOTA WHERE ID_USER='+ id_userapp+';',[]).then(res=>{
+  buscarNota(){
+    return this.database.executeSql('SELECT * FROM NOTA;',[]).then(res=>{
       let items: Nota[] = [];
       if(res.rows.length > 0){
         for(var i= 0; i<res.rows.length; i++){
@@ -140,6 +142,41 @@ export class BdserviceService {
       }
       this.listaNotas.next(items as any);
     })
+  }
+
+  insertarUsuario(nombre: any, apellido:any, mail:any, nivel_educ:any, clave:any, user:any){
+    let data = [nombre, apellido, mail, nivel_educ, clave, user];
+    return this.database.executeSql('INSERT INTO USUARIO(, NOMBRE, APELLIDO, MAIL, NIVEL_EDUC, FECHA_NAC, CLAVE) VALUES(?,?,?,?,?,?)').then(res=>{
+      this.buscarUsuario();
+    })
+  }
+
+  insertarNota(id_usuario: any, detalle:any){
+    let data =[id_usuario, detalle];
+    return this.database.executeSql('INSERT INTO NOTA(ID_NOTA, ID_USER, DETALLE) VALUES()').then(res=>{
+      this.buscarNota();
+    })  
+  }
+
+  modificarUsuario(id:any, nombre: any, apellido:any, mail:any, nivel_educ:any, clave:any, user:any){
+    let data = [id, nombre, apellido, mail, nivel_educ, clave, user];
+    return this.database.executeSql('UPDATE USUARIO SET NOMBRE=?, APELLIDO=?, MAIL=? WHERE USER=? AND ID_USER=?', data).then(data2=>{
+      this.buscarUsuario();
+    })
+  }
+
+  modificarNota(id_nota: any, id_usuario: any, detalle:any){
+    let data =[id_nota, id_usuario, detalle];
+    return this.database.executeSql('UPDATE NOTA SET DETALLE=? WHERE ID_NOTA=? AND ID_USER=?', data).then(data2=>{
+      this.buscarNota();
+    })
+  }
+
+  borrarNota(id_nota: any){
+    return this.database.executeSql('DELETE FROM NOTA WHERE ID_NOTA=?', [id_nota]).then(a=>{
+      this.buscarNota
+    })
+  
   }
 
 }

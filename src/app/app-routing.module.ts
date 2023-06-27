@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'acerca-de',
     loadChildren: () => import('./acerca-de/acerca-de.module').then( m => m.AcercaDePageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./not-found-page/not-found-page.module').then( m => m.NotFoundPagePageModule)
+  },
 ];
 
 @NgModule({
