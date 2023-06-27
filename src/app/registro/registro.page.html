@@ -10,31 +10,31 @@
     <ion-title class="ion-text-center labels">Registro</ion-title>
         <ion-item>
           <ion-label position="floating" class="labels"><ion-icon name="caret-forward-outline"></ion-icon> Usuario</ion-label>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="usuario"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating" class="labels"><ion-icon name="caret-forward-outline"></ion-icon> Password</ion-label>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="clave"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating" class="labels"><ion-icon name="caret-forward-outline"></ion-icon> Repita password</ion-label>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="clave2"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating" class="labels"><ion-icon name="caret-forward-outline"></ion-icon> Nombre</ion-label>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="nombre"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating" class="labels"><ion-icon name="caret-forward-outline"></ion-icon> Apellido</ion-label>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="apellido"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating" class="labels"><ion-icon name="caret-forward-outline"></ion-icon> Email</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-input type="email" [(ngModel)]="mail"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating" class="labels"><ion-icon name="caret-forward-outline"></ion-icon> Nivel Educación</ion-label>
-          <ion-select aria-label="nivel-ed" placeholder="Seleccione nivel">
+          <ion-select aria-label="nivel-ed" placeholder="Seleccione nivel" [(ngModel)]="nivel_educ">
             <ion-select-option value="basico">Basico</ion-select-option>
             <ion-select-option value="medio">Medio</ion-select-option>
             <ion-select-option value="universitario">Universitario</ion-select-option>
@@ -42,7 +42,7 @@
         </ion-item>
       <br>
       <div class="boton">
-        <ion-button size="default" class="labels" (click)="registrar()" color="dark">Registrar</ion-button>
+        <ion-button size="default" class="labels" (click)="insertar()" color="dark" >Registrar</ion-button>
         <ion-button size="default" [routerLink]="['/login']" class="labels" color="dark">Salir</ion-button>
       </div>
     </ion-card-content>

@@ -36,6 +36,14 @@ const routes: Routes = [
     loadChildren: () => import('./acerca-de/acerca-de.module').then( m => m.AcercaDePageModule)
   },
   {
+    path: 'agregar-nota',
+    loadChildren: () => import('./agregar-nota/agregar-nota.module').then( m => m.AgregarNotaPageModule)
+  },
+  {
+    path: 'modificar-nota',
+    loadChildren: () => import('./modificar-nota/modificar-nota.module').then( m => m.ModificarNotaPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./not-found-page/not-found-page.module').then( m => m.NotFoundPagePageModule)
   },
