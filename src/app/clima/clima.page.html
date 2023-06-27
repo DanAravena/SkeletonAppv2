@@ -1,0 +1,43 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="dark">
+     <ion-title class="ion-text-center titulo-principal"><img alt="" src="/assets/img/logo2.png" class="logo-principal" />    SkeletonApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center labels">El tiempo</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+        <ion-label position="floating" class="labels"><ion-icon name="person-outline" ></ion-icon> Ingresa Ciudad</ion-label>
+        <ion-input [(ngModel)]="ciudad" placeholder="Escribe aqui"></ion-input>       
+    </ion-item>
+    <ion-button expand="block" class="labels" color="dark" (click)="buscar()">Buscar</ion-button>
+    <br>
+    <p class="labels" >Cargado por defecto para: Santiago de Chile</p>
+    <ion-item>
+      <ion-label class="labels">Humedad: {{ humedad }}%</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="labels">Temp-minima: {{ tempMin }}°</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="labels">Temp-Maxima: {{ tempMax }}°</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="labels">Vel-Viento: {{ viento }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="labels">Clima: {{ clima }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="labels">Descripción: {{ descripcion }}</ion-label>
+    </ion-item>
+  </ion-card-content>
+  <ion-button expand="block" class="labels" color="dark" [routerLink]="['/home']">Inicio</ion-button>
+  </ion-card>
+
+</ion-content>

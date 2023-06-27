@@ -44,6 +44,10 @@ const routes: Routes = [
     loadChildren: () => import('./modificar-nota/modificar-nota.module').then( m => m.ModificarNotaPageModule)
   },
   {
+    path: 'clima',
+    loadChildren: () => import('./clima/clima.module').then( m => m.ClimaPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./not-found-page/not-found-page.module').then( m => m.NotFoundPagePageModule)
   },
