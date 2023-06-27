@@ -46,6 +46,7 @@ export class NotasPage implements OnInit {
 
   eliminar(x: any){
     this.servicioBD.borrarNota(x.id);
+    this.servicioBD.presentToast("Nota Eliminada");
   }
 
 }

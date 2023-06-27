@@ -166,8 +166,8 @@ export class BdserviceService {
     })
   }
 
-  modificarNota(id_nota: any, id_usuario: any, detalle:any){
-    let data =[id_nota, id_usuario, detalle];
+  modificarNota(detalle:any, id_nota: any, id_usuario: any){
+    let data =[detalle, id_nota, id_usuario];
     return this.database.executeSql('UPDATE NOTA SET DETALLE=? WHERE ID_NOTA=? AND ID_USER=?', data).then(data2=>{
       this.buscarNota();
     })
@@ -175,7 +175,7 @@ export class BdserviceService {
 
   borrarNota(id_nota: any){
     return this.database.executeSql('DELETE FROM NOTA WHERE ID_NOTA=?', [id_nota]).then(a=>{
-      this.buscarNota
+      this.buscarNota();
     })
   
   }

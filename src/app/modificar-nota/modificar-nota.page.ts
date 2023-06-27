@@ -10,7 +10,7 @@ import { BdserviceService } from '../services/bdservice.service';
 export class ModificarNotaPage implements OnInit {
   detalle = "";
   id="";
-  id_usuario="";
+  id_usuario=0;
   constructor(private router: Router, private activedRouter: ActivatedRoute, private servicio: BdserviceService) {
     this.activedRouter.queryParams.subscribe(param=>{
       if(this.router.getCurrentNavigation()?.extras.state){
@@ -26,9 +26,9 @@ export class ModificarNotaPage implements OnInit {
   }
 
   editar(){
-    this.servicio.modificarNota(this.id,this.id_usuario,this.detalle);
+    this.servicio.modificarNota(this.detalle ,this.id,0);
     this.servicio.presentToast("Nota Actualizada");
-    this.router.navigate(['/listar']);
+    this.router.navigate(['/notas']);
   }
 
 }
