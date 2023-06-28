@@ -4,18 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { InterfazClima } from '../services/interfaz-clima';
 
-
-
-const API_URL= environment.API_URL;
-const API_KEY= environment.API_KEY;
-
 @Component({
   selector: 'app-clima',
   templateUrl: './clima.page.html',
   styleUrls: ['./clima.page.scss'],
 })
 export class ClimaPage implements OnInit {
-
+  API_KEY= '469987063c14287d9e978a608a18465c';
+  API_URL= 'https://api.openweathermap.org/data/2.5/';
   ciudad = "";
   tempMax: number=0;
   tempMin: number=0;
@@ -29,11 +25,10 @@ export class ClimaPage implements OnInit {
   }
 
   getClima(ciudad: string): Observable<InterfazClima> {
-    const endpoint = `${API_URL}/weather?q=${ciudad}&lang=es&units=metric&appid=${API_KEY}`;
+    const endpoint = `${this.API_URL}/weather?q=${ciudad}&lang=es&units=metric&appid=${this.API_KEY}`;
     console.log("aaaaaaaa" + this.httpClient.get<InterfazClima>(endpoint));
     return this.httpClient.get<InterfazClima>(endpoint);
   }
-
   
   buscar(){
       this.getClima(this.ciudad);
@@ -41,7 +36,7 @@ export class ClimaPage implements OnInit {
   }
 
   loadData(){
-    this.httpClient.get(`${API_URL}/weather?q=${"Santiago"}&lang=es&units=metric&appid=${API_KEY}`).subscribe( results => {
+    this.httpClient.get(`${this.API_URL}/weather?q=${"Santiago"}&lang=es&units=metric&appid=${this.API_KEY}`).subscribe( results => {
       console.log(results);
     })
     this.getClima("Santiago");
