@@ -43,7 +43,7 @@ export class RegistroPage implements OnInit {
         usuario:this.usuario    
       }
     }
-    this.router.navigate(['/perfil'], navigationExtras);
+    this.router.navigate(['/login'], navigationExtras);
   }
 
   async presentAlert(msj: string) {

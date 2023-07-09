@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BdserviceService } from '../services/bdservice.service';
 
 @Component({
   selector: 'app-not-found-page',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundPagePage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private servicio: BdserviceService) { }
 
   ngOnInit() {
+  }
+
+  login(){
+    this.servicio.limpiarBDNotas();
+    this.servicio.presentToast("BD notas vacia");
+    this.router.navigate(['/login']);    
   }
 
 }
