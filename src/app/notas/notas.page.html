@@ -17,7 +17,7 @@
       <ion-item-sliding *ngFor="let x of arregloNotas">
         <ion-item>
           <ion-label>
-            <p style="word-wrap: break-word;white-space: normal;">{{ x.detalle }}</p>
+            <p style="word-wrap: break-word;white-space: normal;"><ion-icon name="balloon-outline"></ion-icon>   {{ x.detalle }}</p>
           </ion-label>
         </ion-item>
         <!-- opciones para las notas -->
@@ -36,7 +36,7 @@
   </ion-card-content>
 </ion-card>
   </ion-card-content>
-  <ion-button  expand="block" color="dark" class="labels" [routerLink]="['/agregar-nota']">Nueva Nota</ion-button>
+  <ion-button  expand="block" color="dark" class="labels" (click)="agregar()">Nueva Nota</ion-button>
   <ion-button  expand="block" color="dark" class="labels"  [routerLink]="['/home']">Inicio</ion-button>
 </ion-card>
 </ion-content>

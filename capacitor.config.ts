@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'Sumativa2',
+  appName: 'SkelotonAppV2',
   webDir: 'www',
   server: {
     androidScheme: 'https'

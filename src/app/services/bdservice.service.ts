@@ -30,7 +30,7 @@ export class BdserviceService {
 
   //insert 
   registrarUsuario: string = "INSERT OR IGNORE INTO USUARIO(ID_USER, NOMBRE, APELLIDO, MAIL, NIVEL_EDUC, CLAVE, USER) VALUES(0,'Genoveva','villablanca', 'ge.villablanca@duocuc.cl', 'universitaria', '12345', 'gvillablanca');" ;
-  registrarNota: string = "INSERT OR IGNORE INTO NOTA(ID_NOTA, ID_USER, DETALLE) VALUES(0,0,'ESTO ES UNA NOTA DE PRUEBA');";
+  registrarNota: string = "INSERT OR IGNORE INTO NOTA(ID_NOTA, ID_USER, DETALLE) VALUES(2,0 ,'ESTO ES UNA NOTA DE PRUEBA');";
 
   //observables
   listaUsuarios = new BehaviorSubject([]);
@@ -178,6 +178,12 @@ export class BdserviceService {
       this.buscarNota();
     })
   
+  }
+
+  limpiarBDNotas(){
+    return this.database.executeSql('delete from NOTA').then(a=>{
+      this.buscarNota();
+    })
   }
 
 }
